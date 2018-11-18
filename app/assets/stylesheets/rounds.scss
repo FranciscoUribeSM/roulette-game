@@ -1,0 +1,20 @@
+// Place all the styles related to the rounds controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.bets_tables{
+    padding-left: 5px;
+}
+table{
+    border-spacing: inherit; 
+}
+
+td, th {
+    padding: 6px;
+    border: 1px solid #ccc;
+    text-align: left;
+}
+.round_td > td{
+    border-top: 2px solid;
+    background: #ddd;
+}

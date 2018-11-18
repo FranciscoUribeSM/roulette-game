@@ -1,0 +1,48 @@
+<h1>Rounds</h1>
+
+
+<%= link_to 'Jugadores', controller: "players", action:"index"%>
+<table class="round_tables">
+  <thead>
+    <tr>
+      <th>#</th>
+      <th >Color</th>
+      <th >Temp</th>
+      <th colspan="2">Fecha</th>
+      <th>Hora</th>
+      <th>Jugadores</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @rounds.each do |round| %>
+      <tr class="round_td">
+        <td  rowspan=<%= "#{@bets_of_plyers.select{|a| a.round_id == round.id }.length + 2}"%> >Ronda <%= round.id  %> </td>
+        <td rowspan=<%= "#{@bets_of_plyers.select{|a| a.round_id == round.id }.length + 2}"%> ><%= round.color %></td>
+        <td ><%= round.temp %> ºC</td>
+        <td colspan="2"><%= round.created_at.strftime("%Y-%m-%d") %></td>
+        <td><%= round.created_at.strftime("%H:%M") %></td> 
+        <td><%= @bets_of_plyers.select{|a| a.round_id == round.id}.length %></td> 
+     </tr>
+                    <tr class="bets_tables">    
+                        <th>Jugador</th>
+                        <th>Apuesta</th>
+                        <th>Color</th>
+                        <th>Ganancia</th>
+                        <th>Resultado</th>            
+                    </tr class="bets_tables">  
+                    <% @bets_of_plyers.each do |bet_player| %>
+                        <% if bet_player.round_id == round.id%>
+                            <tr>   
+                                <td><%= bet_player.name %></td>
+                                <td><%= bet_player.amount %></td>
+                                <td><%= bet_player.color %></td>
+                                <td><%= bet_player.gain%></td>
+                                <td><%= bet_player.gain == 0 ? "Perdió" : "Ganó"%></td>
+                            </tr>
+                        <%end%>
+                    <% end %>
+      
+    <% end %>
+  </tbody>
+</table>

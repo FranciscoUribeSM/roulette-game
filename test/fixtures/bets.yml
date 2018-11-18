@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  amount: 1
+  color: MyString
+  gain: 1
+  player_balance: 9.99
+  player: one
+  round: one
+
+two:
+  amount: 1
+  color: MyString
+  gain: 1
+  player_balance: 9.99
+  player: two
+  round: two
