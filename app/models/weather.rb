@@ -31,6 +31,7 @@ class Weather < ApplicationRecord
         else 
             return get_forecast
         end
+        
     end
     
 end

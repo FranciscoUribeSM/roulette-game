@@ -11,8 +11,13 @@
     <div class="card-header" id="heading<%=round.id%>"  data-toggle="collapse" data-target="#collapse<%=round.id%>"  aria-controls="collapse<%=round.id%>">
       <h5 class="mb-0">
         <button class="btn btn-link">
-           <%= "Ronda #{round.id } __ #{round.created_at.strftime("%Y-%m-%d")} __ #{round.created_at.strftime("%H:%M")}___ #{round.temp} "%>
+           <div class="text_card_round"><strong><%= "Ronda #{round.id }"%></strong></div>   
+           <div class="text_card_round"><%="Fecha: #{round.created_at.strftime(" %d %b %Y")}"%> </div>  
+           <div class="text_card_round"><%="Hora: #{round.created_at.strftime("%H:%M")}"%> </div> 
+           <div class="text_card_round"><%="Temperatura: #{round.temp.to_i}ºC"%></div>
+           <div class="round_img_color">
             <%= image_tag("#{round.color}.png", :alt => "rss feed", :class => "Img_color") %>
+           </div> 
         </button>
       </h5>
     </div>
@@ -32,9 +37,10 @@
           </thead>
           <tbody>
            <% @bets_of_plyers.each do |bet_player| %>
+            
             <% if bet_player.round_id == round.id%>
               <tr>
-                <th scope="row">1</th>
+                <th scope="row">#</th>
                 <td><%= bet_player.name %></td>
                 <td><%= bet_player.amount %></td>
                 <td><%= image_tag("#{bet_player.color}.png", :alt => "rss feed", :class => "Img_color") %></td>
@@ -49,4 +55,8 @@
     </div>
   </div>
   <% end %>
+</div>
+<%# page buttons %>
+<div class="container_pagination">
+  <%= will_paginate @rounds %>
 </div>

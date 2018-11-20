@@ -17,7 +17,6 @@
     margin-bottom: 30px;  
 }
 
-
 .player_table > a{
     margin-bottom: 10px;
 }
@@ -29,6 +28,42 @@
     margin-left: 10px;
     margin-bottom: 3px;
 }
+
+.btn-show-player{
+    margin-bottom: 10px;
+}
+.container_pagination{
+    text-align: right;
+}
+
+.round_img_color{
+    display:inline;
+    position: absolute;
+    right: 0px;
+}
+
+
+.text_card_round{
+    display:inline;
+    padding:1%;
+    color:#3c4a61;
+}
+.btn-link .text_card_round:first-child{
+    padding-left: 0px;
+    padding-right: 20px;
+}
+h5{
+    position: relative;
+}
+.pagination{
+    padding: 4px;
+
+    display: inline-block;
+    margin: 10px 0px;
+}
+
+// changes in bootstrap
+
 .btn-link{
     text-decoration: none !important;
 }

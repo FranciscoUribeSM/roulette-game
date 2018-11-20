@@ -1,6 +1,6 @@
 class Player < ApplicationRecord
 
-    has_many :bets
+    has_many :bets, dependent: :destroy
     # add bonus daily of $10000 to each player 
     def self.bonus
             all.each do |player|

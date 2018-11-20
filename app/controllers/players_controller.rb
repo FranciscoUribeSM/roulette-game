@@ -5,21 +5,28 @@ class PlayersController < ApplicationController
   # GET /players.json
   def index
     @players = Player.all
+
+    #Variables for handling classes of the navbar
+    @round_class =""
+    @player_class = "active"
   end
 
   # GET /players/1
   # GET /players/1.json
   def show
-    @player_bets = Bet.where(player_id: @player.id).order(created_at: :asc)
+    @player_bets = Bet.where(player_id: @player.id).paginate(:page => params[:page], :per_page => 20).order(created_at: :desc)
   end
 
   # GET /players/new
   def new
     @player = Player.new
+    @name_button = "Agregar"
   end
 
   # GET /players/1/edit
   def edit
+    
+    @name_button = "Editar"
   end
 
   # POST /players
@@ -56,7 +63,11 @@ class PlayersController < ApplicationController
   # DELETE /players/1
   # DELETE /players/1.json
   def destroy
-   
+    @player.destroy
+
+     redirect_to players_url, notice: 'User was successfully destroyed.' 
+
+
   end
 
   private

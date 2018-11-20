@@ -18,10 +18,10 @@
   </button>
   <div class="collapse navbar-collapse" id="navbarText">
     <ul class="navbar-nav mr-auto">
-      <li class="nav-item active" id="rounds_li_nav">
+      <li class="nav-item <%=@round_class%>" id="rounds_li_nav">
         <%= link_to 'Rondas', {controller: "rounds", action:"index"}, {class:"nav-link", id:"rounds_nav"} %>
       </li>
-      <li class="nav-item " id="rounds_li_nav">
+      <li class="nav-item <%=@player_class%>" id="rounds_li_nav">
         <%= link_to 'Jugadores', {controller: "players", action:"index"}, {class:"nav-link", id:"players_nav"} %>
       </li>
     </ul>
