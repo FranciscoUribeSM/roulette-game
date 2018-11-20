@@ -1,12 +1,17 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Players</h1>
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Money</th>
-      <th colspan="3"></th>
+<h1 class="Title">Players</h1>
+
+
+
+<div class="player_table">
+  <%= link_to 'Agregar nuevo', new_player_path, class: "btn btn-primary" %>
+<table class="table table-bordered">
+  <thead >
+    <tr  class="bg-primary header_player_table">
+      <th>Nombre</th>
+      <th>Saldo</th>
+      <th colspan="3">Actiones</th>
     </tr>
   </thead>
 
@@ -14,15 +19,15 @@
     <% @players.each do |player| %>
       <tr>
         <td><%= player.name %></td>
-        <td><%= player.money.to_i %></td>
-        <td><%= link_to 'Show', player %></td>
-        <td><%= link_to 'Edit', edit_player_path(player) %></td>
+        <td>$<%= player.money.to_i %></td>
+        <td><%= link_to 'Ver', player %></td>
+        <td><%= link_to 'Editar', edit_player_path(player) %></td>
         <!--<td><%= link_to 'Destroy', player, method: :delete, data: { confirm: 'Are you sure?' } %></td>-->
       </tr>
     <% end %>
   </tbody>
 </table>
+</div>
 
 <br>
 
-<%= link_to 'New Player', new_player_path %>

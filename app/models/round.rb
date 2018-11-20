@@ -54,7 +54,7 @@ class Round < ApplicationRecord
         #check if there are players to make a round
         if players.length != 0
 
-            round = Round.create(color:roulette_color()  ,temp:Weather.forecast_weather)
+            round = Round.create(color:roulette_color()  ,temp:20)
             round.save
 
             players.each do |player|

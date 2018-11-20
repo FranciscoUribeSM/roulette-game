@@ -1,7 +1,7 @@
 class RoundsController < ApplicationController
   
   def index
-    @rounds = Round.all
+    @rounds = Round.all.order(created_at: :desc)
 
     #query of tables players and bets for main view
     @bets_of_plyers = Player.joins("INNER JOIN bets ON bets.player_id = players.id")
@@ -11,7 +11,7 @@ class RoundsController < ApplicationController
                                      bets.gain, 
                                      bets.amount, 
                                      bets.color, 
-                                     bets.round_id")
+                                     bets.round_id").order(created_at: :desc)
   end
 
   # method to test

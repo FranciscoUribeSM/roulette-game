@@ -11,17 +11,17 @@
     </div>
   <% end %>
 
-  <div class="field">
+  <div class="field form-group">
     <%= form.label :name %>
-    <%= form.text_field :name %>
+    <%= form.text_field :name, class:"form-control" %>
   </div>
   <% if params[:action]=="edit" %>
-      <div class="field">
+      <div class="field form-group">
         <%= form.label :money %>
-        <%= form.text_field :money %>
+        <%= form.text_field :money, class:"form-control" %>
       </div>
   <% end%>
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit class:"btn btn-primary" %>
   </div>
 <% end %>

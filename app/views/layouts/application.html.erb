@@ -7,9 +7,31 @@
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    
   </head>
 
   <body>
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarText">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active" id="rounds_li_nav">
+        <%= link_to 'Rondas', {controller: "rounds", action:"index"}, {class:"nav-link", id:"rounds_nav"} %>
+      </li>
+      <li class="nav-item " id="rounds_li_nav">
+        <%= link_to 'Jugadores', {controller: "players", action:"index"}, {class:"nav-link", id:"players_nav"} %>
+      </li>
+    </ul>
+    <span class="navbar-text">
+      Juego de la ruleta Nnodes
+    </span>
+  </div>
+</nav>
+  <div class="container">
     <%= yield %>
+    <div>
   </body>
 </html>

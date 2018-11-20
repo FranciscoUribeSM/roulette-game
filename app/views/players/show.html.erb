@@ -1,33 +1,46 @@
-<h1><%= @player.name %></h1>
+<p id="notice"><%= notice %></p>
+
+<div class="Title">
+  <h1>Jugador <%= @player.name %></h1>
+</div>
+
 <p>MONTO TOTAL: <%= @player.money.to_i %></p>
 
-<%= link_to 'volver', controller:'players' %>
-<table class="round_tables">
-  <thead>
-    <tr>
-      <th>#</th>
-      <th>Fecha</th>
-      <th>Hora</th>
-      <th>Apuesta</th>
-      <th>Color</th>
-      <th>Ganancia</th>
-      <th>Resultado</th>
-      <th>Dinero</th>
-    </tr>
-  </thead>
+<%= link_to 'volver', {controller:'players'}, {class:'btn btn-primary'} %>
+<% if @player_bets.length.to_i != 0 %>
+  <div class="player_table">
+  <table class="table">
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>Fecha </th>
+        <th>Hora</th>
+        <th>Apuesta</th>
+        <th>Color</th>
+        <th>Ganancia</th>
+        <th>Resultado</th>
+        <th>Dinero</th>
+      </tr>
+    </thead>
 
-  <tbody>
-    <% @player_bets.each do |bet| %>
-      <tr class="round_td">
-        <td></td>
-        <td><%=bet.created_at.strftime("%Y-%m-%d")%></td>
-        <td><%=bet.created_at.strftime("%H:%M")%></td>
-        <td>$<%=bet.amount%></td>
-        <td><%=bet.color%></td>
-        <td>$<%=bet.gain%></td>
-        <td><%=bet.gain == 0 ? "Perdió" : "Ganó"%></td>
-        <td>$<%=bet.player_balance.to_i%></td>
-     </tr>
-    <% end %>
-  </tbody>
-</table>
+    <tbody>
+
+        <% @player_bets.each do |bet| %>
+          <tr class="round_td">
+            <td></td>
+            <td><%=bet.created_at.strftime("%Y-%m-%d")%></td>
+            <td><%=bet.created_at.strftime("%H:%M")%></td>
+            <td>$<%=bet.amount%></td>
+            <td><%=bet.color%></td>
+            <td>$<%=bet.gain%></td>
+            <td><%=bet.gain == 0 ? "Perdió" : "Ganó"%></td>
+            <td>$<%=bet.player_balance.to_i%></td>
+        </tr>
+        <% end %>
+
+    </tbody>
+  </table>
+  </div>
+<% else %>
+  <p>Este Jugador no ha realizado apuestas</p>
+<% end %>

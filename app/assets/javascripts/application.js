@@ -14,3 +14,29 @@
 //= require activestorage
 //= require turbolinks
 //= require_tree .
+//= require jquery3
+//= require popper
+//= require bootstrap
+
+$(document).ready(function(){ 
+
+    $("#rounds_nav").click(function(){
+        // $('#rounds_li_nav').attr('class','nav-item active')
+        // $('#players_li_nav').attr('class','nav-item')
+        console.log('Round')
+    })
+    $("#rounds_nav").on('click',function(){
+        // $('#rounds_li_nav').attr('class','nav-item active')
+        // $('#players_li_nav').attr('class','nav-item')
+        console.log('Round')
+    })
+    
+
+        
+    
+    $('#players_nav').click(function(){
+        // $('#rounds_li_nav').attr('class','nav-item')
+        // $('#players_li_nav').attr('class','nav-item active')
+        console.log('Players')
+    })
+ }) 
