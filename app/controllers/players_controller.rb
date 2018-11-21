@@ -43,10 +43,6 @@ class PlayersController < ApplicationController
     
   end
 
-  def bonus 
-    Player.bonus
-    redirect_to players_path
-  end 
   
   # PATCH/PUT /players/1
   # PATCH/PUT /players/1.json

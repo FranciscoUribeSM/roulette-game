@@ -19,10 +19,4 @@ class RoundsController < ApplicationController
                              .order(created_at: :desc)
   end
 
-  # method to test
-  def new_round 
-    Round.new_round
-    redirect_to root_path
-  end
-
 end
