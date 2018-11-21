@@ -34,6 +34,8 @@ Se utilizo [whenever](https://github.com/javan/whenever) para la utilización de
 
 Para obtener el pronostico del clima de los próximos 7 días se utilizo  la API  [WorldWeather](https://www.worldweatheronline.com/).
 
+> Para provocar mas variación en el sistema, se utilizo 27 ºC para indicar que tan conservadoras serán las apuestas de los jugadores. 
+
 ##### Diseño 
 
 Para el diseño se utilizo [Bootstrap 4](https://getbootstrap.com/docs/4.1/getting-started/introduction/), y para la paginación [will_paginate](https://github.com/mislav/will_paginate) en el listado de rondas y jugadores. 
