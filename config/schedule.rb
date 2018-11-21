@@ -7,7 +7,7 @@ set :output, "#{path}/log/cron_log.logs"
 env :GEM_PATH, ENV['GEM_PATH']              
 
 # Create new round each 3 minutes
-every 2.minutes do
+every 3.minutes do
 
     runner "Round.new_round"         
 
