@@ -20,21 +20,24 @@ class Weather < ApplicationRecord
 
         temp = weather[:forecast][:forecastday][6][:day][:maxtemp_c].to_f
         Weather.create(temp: temp)
-        
+
         temp.to_i
     end
 
+    #check if you have the forecast
     def self.forecast_weather
 
         date_today= Time.now.in_time_zone('Santiago').to_date.strftime("%Y.%m.%d")
         weather = Weather.last
-        
-        if weather.created_at.strftime("%Y.%m.%d") == date_today
-            return weather.temp.to_i
+
+        if Weather.last == 'nil'
+            if (weather.created_at.strftime("%Y.%m.%d") == date_today) 
+                return weather.temp.to_i
+            end
         else 
             return get_forecast
         end
-        
+            
     end
     
 end

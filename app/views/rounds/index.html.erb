@@ -24,33 +24,36 @@
 
     <div id="collapse<%=round.id%>" class="collapse" aria-labelledby="heading<%=round.id%>" data-parent="#accordion">
       <div class="card-body">
-        <table class="table">
-          <thead>
-            <tr>
-              <th scope="col">#</th>
-              <th scope="col">Nombre</th>
-              <th scope="col">Apuesta</th>
-              <th scope="col">Color</th>
-              <th scope="col">Ganancia</th>
-              <th scope="col">Resultado</th>
-            </tr>
-          </thead>
-          <tbody>
-           <% @bets_of_plyers.each do |bet_player| %>
-            
-            <% if bet_player.round_id == round.id%>
-              <tr>
-                <th scope="row">#</th>
-                <td><%= bet_player.name %></td>
-                <td><%= bet_player.amount %></td>
-                <td><%= image_tag("#{bet_player.color}.png", :alt => "rss feed", :class => "Img_color") %></td>
-                <td><%= bet_player.gain%></td>
-                <td><%= bet_player.gain == 0 ? "Perdió" : "Ganó"%></td>
-              </tr>
-            <% end %>
-          <% end %>
-          </tbody>
-        </table>
+
+
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Nombre</th>
+                    <th scope="col">Apuesta</th>
+                    <th scope="col">Color</th>
+                    <th scope="col">Ganancia</th>
+                    <th scope="col">Resultado</th>
+                  </tr>
+                </thead>
+                <tbody>
+                <% @bets_of_plyers.each do |bet_player| %>
+                  
+                  <% if bet_player.round_id == round.id%>
+                    <tr>
+                      <th scope="row">#</th>
+                      <td><%= bet_player.name %></td>
+                      <td><%= bet_player.amount %></td>
+                      <td><%= image_tag("#{bet_player.color}.png", :alt => "rss feed", :class => "Img_color") %></td>
+                      <td><%= bet_player.gain%></td>
+                      <td><%= bet_player.gain == 0 ? "Perdió" : "Ganó"%></td>
+                    </tr>
+                  <% end %>
+                <% end %>
+                </tbody>
+              </table>
+
       </div>
     </div>
   </div>

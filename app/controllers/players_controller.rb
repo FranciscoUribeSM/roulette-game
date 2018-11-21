@@ -36,7 +36,7 @@ class PlayersController < ApplicationController
     @player.money = 10000
 
       if @player.save
-          redirect_to @player, notice: 'Player was successfully created.'
+          redirect_to @player, notice: 'Jugador creado exitosamente.'
       else
           render :new 
       end
@@ -53,7 +53,7 @@ class PlayersController < ApplicationController
   def update
     
       if @player.update(player_params)
-        redirect_to @player, notice: 'Player was successfully updated.'
+        redirect_to @player, notice: 'Jugador fue modificado exitosamete.'
       else
         render :edit 
       end
@@ -65,7 +65,7 @@ class PlayersController < ApplicationController
   def destroy
     @player.destroy
 
-     redirect_to players_url, notice: 'User was successfully destroyed.' 
+     redirect_to players_url, notice: 'Jugador fue eliminado.' 
 
 
   end

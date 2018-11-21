@@ -15,7 +15,8 @@ class RoundsController < ApplicationController
                                      bets.gain, 
                                      bets.amount, 
                                      bets.color, 
-                                     bets.round_id").order(created_at: :desc)
+                                     bets.round_id")
+                             .order(created_at: :desc)
   end
 
   # method to test

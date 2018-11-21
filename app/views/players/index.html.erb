@@ -6,27 +6,32 @@
 
 <div class="player_table">
   <%= link_to 'Agregar nuevo', new_player_path, class: "btn btn-primary" %>
-<table class="table table-bordered">
-  <thead >
-    <tr  class="bg-primary header_player_table">
-      <th>Nombre</th>
-      <th>Saldo</th>
-      <th colspan="3">Actiones</th>
-    </tr>
-  </thead>
+<% if @players.length != 0%>
+    <table class="table table-bordered">
+      <thead >
+        <tr  class="bg-primary header_player_table">
+          <th>Nombre</th>
+          <th>Saldo</th>
+          <th colspan="3">Actiones</th>
+        </tr>
+      </thead>
 
-  <tbody>
-    <% @players.each do |player| %>
-      <tr>
-        <td><%= player.name %></td>
-        <td>$<%= player.money.to_i %></td>
-        <td><%= link_to 'Ver', player %></td>
-        <td><%= link_to 'Editar', edit_player_path(player) %></td>
-        <td><%= link_to 'Eliminar', player, method: :delete, data: { confirm: 'Are you sure?' }  %></td> 
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+      <tbody>
+        <% @players.each do |player| %>
+          <tr>
+            <td><%= player.name %></td>
+            <td>$<%= player.money.to_i %></td>
+            <td><%= link_to 'Ver', player %></td>
+            <td><%= link_to 'Editar', edit_player_path(player) %></td>
+            <td><%= link_to 'Eliminar', player, method: :delete, data: { confirm: 'Are you sure?' }  %></td> 
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+<% else %>
+  <p>No existen jugadores registrados</p>
+<% end %>
+
 </div>
 
 <br>

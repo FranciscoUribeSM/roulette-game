@@ -23,7 +23,7 @@ class Round < ApplicationRecord
         if money_user > 0 && money_user<= 1000
             return money_user
         else
-            if temp < 20
+            if temp < 27
                 return rand(8..15)*money_user/100
             else 
                 return rand(3..7)*money_user/100
@@ -49,7 +49,7 @@ class Round < ApplicationRecord
 
     # create a new round, it is the main function 
     def self.new_round
-        players = Player.all
+        players = Player.where("money > ?", 0)
         
         #check if there are players to make a round
         if players.length != 0
