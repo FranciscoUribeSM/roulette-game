@@ -6,19 +6,16 @@ class Weather < ApplicationRecord
 
     # Connection with WeatherUnclock API
     def self.get_forecast
-        # Get the dates today and tomorrow to make the request
+        # Get the date to make the request
         date_today= Time.now.in_time_zone('Santiago').to_date
-        date_tomorrow = (date_today +1).strftime("%Y.%m.%d")
-        date_today = date_today.strftime("%Y.%m.%d")
+        date = (date_today +7).strftime("%Y-%m-%d")
         
-        # uri = URI("http://api.weatherunlocked.com/api/trigger/-33.4372,-70.6506/forecast%20#{date_today},#{date_tomorrow}%20temperature%20gt%2016%20include7dayforecast?app_id=bc1e7fc1&app_key=68745966c16df3e92a7a09d1b861ce4c")
-        uri = URI("http://api.apixu.com/v1/forecast.json?key=cb33b4318dda4467924194800181911&q=Santiago&days=8&dt=2018-11-23")
+        uri = URI("http://api.worldweatheronline.com/premium/v1/weather.ashx?q=Santiago&key=3a21433208bb459b83b140805182111&num_of_days=1&date=#{date}&format=json")
         res = Net::HTTP.get_response(uri)
         weather = res.body if res.is_a?(Net::HTTPSuccess)
         weather =JSON.parse(weather).with_indifferent_access
-        # temp = weather[:ForecastWeather][:Days][6][:temp_max_c].to_f
 
-        temp = weather[:forecast][:forecastday][6][:day][:maxtemp_c].to_f
+        temp = weather[:data][:weather][0][:maxtempC].to_f
         Weather.create(temp: temp)
 
         temp.to_i
@@ -29,12 +26,18 @@ class Weather < ApplicationRecord
 
         date_today= Time.now.in_time_zone('Santiago').to_date.strftime("%Y.%m.%d")
         weather = Weather.last
+        puts weather
+        #cheked that there are records
+        if weather
 
-        if Weather.last == 'nil'
-            if (weather.created_at.strftime("%Y.%m.%d") == date_today) 
-                return weather.temp.to_i
+            #check if you already have that data
+            if (weather.created_at.strftime("%Y.%m.%d") == date_today)               
+                return weather.temp.to_i  
+            else   
+                return get_forecast
             end
-        else 
+
+        else    
             return get_forecast
         end
             
