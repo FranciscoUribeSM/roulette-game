@@ -29,7 +29,7 @@
               <tr class="round_td">
                 <td><%=@player_bets.length-index%></td>
                 <td><%=bet.created_at.strftime("%Y-%m-%d")%></td>
-                <td><%=bet.created_at.strftime("%H:%M")%></td>
+                <td><%="#{bet.created_at.strftime("%H").to_i - 3}:#{bet.created_at.strftime("%M")}"%></td>
                 <td>$<%=bet.amount%></td>
                 <td><%=bet.color%></td>
                 <td>$<%=bet.gain%></td>

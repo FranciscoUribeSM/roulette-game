@@ -13,7 +13,7 @@
         <button class="btn btn-link">
            <div class="text_card_round"><strong><%= "Ronda #{round.id }"%></strong></div>   
            <div class="text_card_round"><%="Fecha: #{round.created_at.strftime(" %d %b %Y")}"%> </div>  
-           <div class="text_card_round"><%="Hora: #{round.created_at.strftime("%H:%M")}"%> </div> 
+           <div class="text_card_round"><%="Hora: #{round.created_at.strftime("%H").to_i - 3}:#{round.created_at.strftime("%M")}"%> </div> 
            <div class="text_card_round"><%="Temperatura: #{round.temp.to_i}ºC"%></div>
            <div class="round_img_color">
             <%= image_tag("#{round.color}.png", :alt => "rss feed", :class => "Img_color") %>
