@@ -1,3 +1,6 @@
+#
+#   use of whenever to test in development
+#
 
 set :environment, :development               
 set :output, "#{path}/log/cron_log.logs"    
